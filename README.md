@@ -39,7 +39,7 @@ defaults write com.github.autopkg API_PASSWORD apiPassword
 In addition the URL, user, and password preferences, there are a few others you may want to use.
 - ```JSS_VERIFY_SSL```: Boolean (True or False). Whether or not to verify SSL traffic. Defaults to ```True```, and recommended. (See below).
 - ```JSS_MIGRATED```: Boolean. If you have "migrated" your JSS (uses the web interface to edit scripts), set to ```True```. Defaults to ```False```. This only really comes into play if you have an AFP or SMB share *and* have migrated.
-- ```JSS_SUPPRESS_WARNINGS```: Boolean. If you are getting a lot of warnings from urllib3 or requests when running JSSImporter, you can disable the warnings by setting this to ```True```. Defaults to ```False```. Use at your own risk!
+- ```JSS_SUPPRESS_WARNINGS```: Boolean. Determines whether to suppress urllib3 warnings.  If you choose not to verify SSL with JSS_VERIFY_SSL, urllib3 throws warnings for each of the numerous requests JSSImporter makes. If you would like to see them, set to `False`. Defaults to `True`.
 
 ### Adding distribution points.
 You will need to specify your distribution points in the preferences as well. The JSSImporter will copy packages and scripts to all configured distribution points using the ```JSS_REPOS``` key. The value of this key is an array of dictionaries, which means you have to switch tools and use PlistBuddy. Of course, if you want to go all punk rock and edit this by hand like a savage, go for it. At least use vim.
@@ -407,7 +407,7 @@ Installing and/or upgrading the following packages may solve the problem:
 
 Hopefully this is temporary, although requests' changelog does claim to have "Fix(ed) previously broken SNI support." at version 2.1.0 (Current included version is 2.5.0).
 
-If you have lots of warnings from urllib3, there's also a ```JSS_SUPPRESS_WARNINGS``` input variable which, when set to ```True``` will prevent those warnings from appearing repeatedly. Use at your own risk!
+If you would like to see lots of warnings from urllib3, there's also a ```JSS_SUPPRESS_WARNINGS``` input variable.
 
 Comments/Questions/Ideas
 =================

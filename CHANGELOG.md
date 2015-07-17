@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased][unreleased]
 
+### Changed
+
+- `JSS_SUPPRESS_WARNINGS` now defaults to `True`. As users will only get warnings if they have disabled `JSS_VERIFY_SSL`, they already realize they are doing something risky. No need to bash them over the head with tons of warnings.
+
 ## [0.4.1] - 2015-06-25 - It's not a Tumor
 
 ### Fixed
